@@ -1,4 +1,4 @@
 export interface IHeader {
-    headerName:  string,
-    headerLine: string,
+  headerName: string;
+  headerLine: string;
 }
