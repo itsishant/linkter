@@ -1,15 +1,10 @@
 import express from "express";
-import { JWT_SECRET } from "@repo/backend-common/src/index";
+import cors from "cors";
+import router from "./routes/auth.routes";
 
-export class AuthController {
-  static async SignUp(req: Request, res: Response) {
+const app = express();
 
-    // all db calls there through prisma orm
-    const w= JWT_SECRET;
-  }
+app.use(express.json());
+app.use(cors());
 
-  static async SignInn(req: Request, res: Response) {
-    
-    // all db checks over there through prisma orm
-  }
-}
+app.use("/api/v1/auth", router)
