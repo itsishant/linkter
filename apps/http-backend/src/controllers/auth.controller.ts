@@ -58,7 +58,4 @@ export class AuthController {
     }
   }
 
-  static async SignInn(req: Request, res: Response) {
-    // all db checks over there through prisma orm
-  }
 }
