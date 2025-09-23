@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { JWT_SECRET } from "@repo/backend-common/src/index";
+import { JWT_SECRET } from "@repo/backend-common";
 import { SignupZod } from "@repo/common-zod/src";
 import { prisma } from "@repo/database/src";
 import bcrypt from "bcrypt";
