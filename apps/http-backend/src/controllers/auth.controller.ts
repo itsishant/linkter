@@ -1,9 +1,10 @@
 import express, { Request, Response } from "express";
-import { JWT_SECRET } from "@repo/backend-common";
-import { SignupZod } from "@repo/common-zod/src";
+import { SignupZod } from "@repo/common-zod";
 import { prisma } from "@repo/database/src";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+
+const JWT_SECRET = "!@#$%^%@";
 
 export class AuthController {
   static async SignUp(req: Request, res: Response) {
