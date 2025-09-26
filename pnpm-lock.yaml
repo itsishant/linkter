@@ -121,6 +121,13 @@ importers:
         version: link:../typescript-config
 
   packages/common-zod:
+    dependencies:
+      '@types/jsonwebtoken':
+        specifier: ^9.0.10
+        version: 9.0.10
+      jsonwebtoken:
+        specifier: ^9.0.2
+        version: 9.0.2
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -138,6 +145,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.2
 
   packages/eslint-config:
     devDependencies:

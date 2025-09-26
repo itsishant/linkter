@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { SignupZod } from "@repo/common-zod";
-import { prisma } from "@repo/database/src";
+import { prisma } from "@repo/database"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
