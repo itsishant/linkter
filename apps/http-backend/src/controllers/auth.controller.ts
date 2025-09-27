@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { SignupZod } from "@repo/common-zod";
+import { prisma } from "@repo/database";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -24,38 +25,38 @@ export class AuthController {
         },
       });
 
-      if (existingUser) return res.status(400).json({
-        success: false,
-        message: "Email already exists"
-      })
+      if (existingUser)
+        return res.status(400).json({
+          success: false,
+          message: "Email already exists",
+        });
 
       const hashPassword = await bcrypt.hash(password, 10);
 
       const createUser = await prisma.user.create({
         data: {
           email,
-          password: hashPassword
-        }
-      })
+          password: hashPassword,
+        },
+      });
 
       const token = jwt.sign(
-      {
-        id: createUser.email,
-      },
-      JWT_SECRET
-    );
+        {
+          id: createUser.email,
+        },
+        JWT_SECRET,
+      );
 
-      if (createUser) return res.status(200).json({
-        success: true,
-        message: "User created successfully",
-        token: token
-      })
-
+      if (createUser)
+        return res.status(200).json({
+          success: true,
+          message: "User created successfully",
+          token: token,
+        });
     } catch (error) {
       return res.status(500).json({
         message: "Internal server error",
       });
     }
   }
-
 }
