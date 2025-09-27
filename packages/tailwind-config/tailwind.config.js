@@ -1,12 +1,19 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-      content: [
-        // Define content paths for all your apps/packages
-        "../../apps/**/*.{js,ts,jsx,tsx}",
-        "../../packages/**/*.{js,ts,jsx,tsx}",
-    ],
-    theme: {
-        extend: {},
-    },
-    plugins: [],
+export default {
+  content: [
+    path.join(__dirname, '../../apps/**/*.{js,ts,jsx,tsx}'),
+    path.join(__dirname, '../../packages/**/*.{js,ts,jsx,tsx}'),
+    path.join(__dirname, './components/**/*.{ts,tsx}')
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+  presets: [require('../../tailwind.config.base.js')],
 };
