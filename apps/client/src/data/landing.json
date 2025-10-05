@@ -3,5 +3,13 @@
       "title": "PDF Chat",
       "des1": "Upload",
       "des2": "Chat"  
+    },
+
+    "landingContent": {
+      "heading": "Talk To Your PDF",
+      "subHeading": "Toss In A PDF Fire Off Your Questions, And Get Real-Time Answers Like You Are Chatting With A Friend.",
+      "button1": "Get Started",
+      "button2": "Learn More",
+      "video": "video.webm"
     }
 }

@@ -4,14 +4,14 @@ import { IData } from "@/app/interfaces/Landing";
 import { FaFilePdf } from "react-icons/fa";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useState } from "react";
-import { animate, AnimatePresence, motion } from "motion/react";
+import {AnimatePresence, motion } from "motion/react";
 
 export const LandingHeader = () => {
   const landingData: IData = data;
   const [night, setNight] = useState(false);
 
   return (
-    <div className="h-18 w-full border-b rounded-b-md flex justify-between border-neutral-400">
+    <div className="h-18 w-full border-b  flex justify-between border-neutral-400">
       <div className="p-2 ml-1 flex">
         <FaFilePdf className="text-gray-400 size-14" />
         <h2 className="text-neutral-300 p-3 font-bold text-3xl">
