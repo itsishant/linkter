@@ -1,10 +1,10 @@
-"use client"
-import { LandingHeader } from "../components/landingComponent/landing.header"
+"use client";
+import { LandingHeader } from "../components/landingComponent/landing.header";
 
 export const Landing = () => {
-    return (
-        <div>
-            <LandingHeader />
-        </div>
-    )
-}
+  return (
+    <div>
+      <LandingHeader />
+    </div>
+  );
+};
