@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx"
+    ".": "./dist/index.js"
   },
-  "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component",
-    "check-types": "tsc --noEmit"
-  },
+ "scripts": {
+  "build": "tsc -p tsconfig.json",
+  "lint": "eslint . --max-warnings 0",
+  "check-types": "tsc --noEmit"
+},
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
