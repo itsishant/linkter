@@ -4,7 +4,7 @@ import { IData } from "@/app/interfaces/Landing";
 import { FaFilePdf } from "react-icons/fa";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useState } from "react";
-import {AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 export const LandingHeader = () => {
   const landingData: IData = data;

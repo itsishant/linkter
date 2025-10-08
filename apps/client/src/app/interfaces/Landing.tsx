@@ -5,11 +5,11 @@ interface ILanding {
 }
 
 interface ILandingContent {
-  heading: string,
-  subHeading: string
-  button1: string,
-  button2: string,
-  video: string
+  heading: string;
+  subHeading: string;
+  button1: string;
+  button2: string;
+  video: string;
 }
 
 export interface IData {
@@ -17,5 +17,5 @@ export interface IData {
 }
 
 export interface ILandingContentData {
-  landingContent: ILandingContent
+  landingContent: ILandingContent;
 }

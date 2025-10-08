@@ -1,0 +1,8 @@
+{
+    "signup": {
+        "title": "Log in to PDF Chat",
+        "email": "Email Address",
+        "submit": "Continue with Email",
+        "alreadyHaveAccount": "Already have an account? Log in"
+    }
+}
