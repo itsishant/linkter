@@ -9,6 +9,7 @@ export default function SignUp() {
         <div className="min-h-screen w-full flex  justify-center bg-black ">
             <div>
                 <div>
+                    hello
                     <h1 className="font-bold font-sans text-4xl text-neutral-200 mt-10"> 
                         {signupdetail.signup.title} 
                     </h1>
