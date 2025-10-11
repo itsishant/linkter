@@ -13,5 +13,6 @@ app.use(cors());
 create();
 
 app.use("/api/v1/auth", router);
+app.use("/api/v1/send-otp", router);
 
 app.listen(4000);
