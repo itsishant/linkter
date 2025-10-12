@@ -1,9 +1,15 @@
-
+"use client"
+import { useEffect } from 'react'
 import data from '../../data/signup.json'
 import { ISignupData } from '../interfaces/Signup'
 export default function SignUp() {
+    
 
     const signupdetail: ISignupData = data
+
+    useEffect(() => {
+        
+    }, [])
 
     return (
         <div className="min-h-screen w-full flex  justify-center bg-black ">
