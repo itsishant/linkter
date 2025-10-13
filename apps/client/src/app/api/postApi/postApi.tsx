@@ -17,7 +17,3 @@ const createUser = async (Login: payload) => {
     }
 }
 
-export {
-    createUser
-}
-

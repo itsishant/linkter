@@ -65,4 +65,31 @@ export const NodeMailer = async (req: any, res:any) => {
     }
 }
 
+export const otpGenerator = (req: any, res: any) => {
+
+    const { otp } = req.body;
+
+    try {
+
+        const generatedOtp = Math.floor(100000 + Math.random() * 900000);
+        if (!otp) {
+            return res.status(422).json({
+                success: false,
+                message: "OTP required"
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            message: "OTP generated successfully",
+            otp: generatedOtp
+        })
+ 
+    } catch (error) {
+        console.log(`Error while generating otp: ${error}`);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        })
+    }
+}
 
