@@ -16,6 +16,7 @@ export const create = () => {
     })
 }
 
+
  const htmlTemplate = `
   <div style="background:#0d1117;color:#e6edf3;font-family:Arial,Helvetica,sans-serif;
               padding:40px 20px;text-align:center;border-radius:10px;">
