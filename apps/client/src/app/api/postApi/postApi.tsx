@@ -1,6 +1,7 @@
 import { payload } from "@/app/interfaces/Api"
 
-const baseUrl = process.env.BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 
 const createUser = async (Login: payload) => {
     const response = await fetch(`${baseUrl}/signup`, {
@@ -15,5 +16,9 @@ const createUser = async (Login: payload) => {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
+}
+
+export {
+    createUser
 }
 

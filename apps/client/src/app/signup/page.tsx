@@ -1,15 +1,28 @@
 "use client"
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import data from '../../data/signup.json'
 import { ISignupData } from '../interfaces/Signup'
+import { createUser } from '../api/postApi/postApi'
+import axios from 'axios'
 export default function SignUp() {
-    
-
     const signupdetail: ISignupData = data
 
-    useEffect(() => {
-        
-    }, [])
+    const [email, setEmail] = useState(signupdetail.signup.email);
+    const [password, setPassword] = useState(signupdetail.signup.password);
+
+    const clickHandle = async () => {
+        try {
+
+            await createUser({
+                loginPayload: {
+                    email, password
+                }
+            })
+
+        } catch (err){
+            console.log(err);
+        } 
+    }
 
     return (
         <div className="min-h-screen w-full flex  justify-center bg-black ">
@@ -23,7 +36,7 @@ export default function SignUp() {
                     <input type="text" className="border-2 w-full py-6 px-2 rounded-lg border-neutral-700 bg-neutral-900 text-left  text-neutral-100 h-10" placeholder={signupdetail.signup.email}></input>
                     <input type="text" className="border-2 w-full py-6 px-2 rounded-lg border-neutral-700 bg-neutral-900 text-left  text-neutral-100 h-10" placeholder={signupdetail.signup.password}></input>
                 </form>
-                <button className='py-4 px-2 text-gray-800  bg-neutral-200 rounded-lg text-md font-lg  w-full max-w-md mt-6 hover:bg-neutral-300 hover:cursor-pointer'>
+                <button onClick={clickHandle} className='py-4 px-2 text-gray-800  bg-neutral-200 rounded-lg text-md font-lg  w-full max-w-md mt-6 hover:bg-neutral-300 hover:cursor-pointer'>
                     {signupdetail.signup.submit}
                 </button>
             </div>

@@ -34,6 +34,7 @@ export class AuthController {
       const hashPassword = await bcrypt.hash(password, 10);
 
       const createUser = await prisma.user.create({
+        //@ts-ignore
         data: {
           email,
           password: hashPassword,

@@ -26,7 +26,8 @@ export const create = () => {
       <h1 style="color:#ffffff;letter-spacing:4px;">YOUR_CODE_HERE</h1>
     </div>
     <p style="color:#8b949e;">If you didn’t request this, you can ignore this email.</p>
-    <p style="color:#30363d;font-size:12px;">© ${new Date().getFullYear()} Modak Inc.</p>
+    <p style="
+    color:#30363d;font-size:12px;">© ${new Date().getFullYear()} Modak Inc.</p>
   </div>
 `;
 
@@ -92,4 +93,3 @@ export const otpGenerator = (req: any, res: any) => {
         })
     }
 }
-
