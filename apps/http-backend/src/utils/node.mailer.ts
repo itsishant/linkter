@@ -1,10 +1,17 @@
 import nodemailer from "nodemailer"
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
 dotenv.config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
+
+export const otpGenerator = (): string => {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
 
 export const create = () => {
     return nodemailer.createTransport({
@@ -16,80 +23,101 @@ export const create = () => {
     })
 }
 
- const htmlTemplate = `
-  <div style="background:#0d1117;color:#e6edf3;font-family:Arial,Helvetica,sans-serif;
-              padding:40px 20px;text-align:center;border-radius:10px;">
-    <h2 style="color:#58a6ff;">Verify Your Email</h2>
-    <p style="color:#8b949e;">Use the code below to verify your email address:</p>
-    <div style="background:#161b22;padding:15px 25px;border-radius:8px;
-                display:inline-block;margin:20px 0;">
-      <h1 style="color:#ffffff;letter-spacing:4px;">YOUR_CODE_HERE</h1>
-    </div>
-    <p style="color:#8b949e;">If you didn’t request this, you can ignore this email.</p>
+export const sendOtpEmail = async (email: string, otp: string) => {
+        const htmlTemplate = `<div style="
+    background: linear-gradient(135deg, #0d1117, #161b22);
+    color: #e6edf3;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+">
+    <h2 style="
+        color: #ff7f50;
+        font-size: 28px;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 2px #000;
+    ">
+        Your Verification Code
+    </h2>
     <p style="
-    color:#30363d;font-size:12px;">© ${new Date().getFullYear()} Modak Inc.</p>
-  </div>
-`;
+        color: #9ec1ff;
+        font-size: 16px;
+        margin-bottom: 20px;
+    ">
+        Use the code below to verify your email address:
+    </p>
+    <div style="
+        background: #2c2f38;
+        padding: 20px 30px;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 20px 0;
+        border: 2px dashed #ff7f50;
+    ">
+        <h1 style="
+            color: #00ffcc;
+            font-size: 32px;
+            letter-spacing: 6px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffcc;
+        ">
+            ${otp}
+        </h1>
+    </div>
+    <p style="
+        color: #ffcc00;
+        font-weight: bold;
+        margin-bottom: 20px;
+    ">
+        This OTP will expire within 5 minutes
+    </p>
+    <p style="
+        color: #b0b0b0;
+        font-size: 14px;
+        margin-bottom: 10px;
+    ">
+        If you didn’t request this, you can safely ignore this email.
+    </p>
+    <p style="
+        color: #808080;
+        font-size: 12px;
+    ">
+        © ${new Date().getFullYear()} PDF Chater Inc.
+    </p>
+</div>
 
-export const NodeMailer = async (req: any, res:any) => {
-    try {
+    `;
 
-        const { email } = req.body;
-
-        if (!email) {
-            return res.status(422).json({
-                success: false,
-                message: "Email field is required"
-            })
-        }
-
-        await create().sendMail({
-        from: dotenv.config().parsed?.EMAIL_USER,
+    await create().sendMail({
+        from: process.env.EMAIL_USER,
         to: email,
-        subject: "Test Email to modak",
-        text: "Hello from modak",
-        html: htmlTemplate.replace("YOUR_CODE_HERE", "12123422")
-    })
-    
+        subject: "Verify your email",
+        html: htmlTemplate,
+    });
+};
 
-    return res.status(200).json({
-        success: true,
-        message: "Email sent successfully"
-    })
 
-    } catch (error){
-        console.log(`Error while sending mail :${error}`);
-        return res.status(500).json({
-            success: false,
-            message: "Internal Server Error"
-        })
-    }
-}
+// export const CheckOtp = async (req: Request, res: Response) => {
 
-export const otpGenerator = (req: any, res: any) => {
+//     const { otp } = req.body;
 
-    const { otp } = req.body;
+//     try {
 
-    try {
-
-        const generatedOtp = Math.floor(100000 + Math.random() * 900000);
-        if (!otp) {
-            return res.status(422).json({
-                success: false,
-                message: "OTP required"
-            })
-        }
-        return res.status(200).json({
-            success: true,
-            message: "OTP generated successfully",
-            otp: generatedOtp
-        })
- 
-    } catch (error) {
-        console.log(`Error while generating otp: ${error}`);
-        return res.status(500).json({
-            success: false,
-            message: "Internal Server Error"
-        })
-    }
-}
+//         if ( !otp ){
+//             return res.status(422).json({
+//                 success: false,
+//                 message: "OTP required"
+//             })
+//         }       
+     
+//     }
+//     catch (error){
+//         console.log(`Error while checking otp ${error}`);
+//         return res.status(500).json({
+//             success: false,
+//             message: "Internal Server Error"
+//         })
+//     }
+// }

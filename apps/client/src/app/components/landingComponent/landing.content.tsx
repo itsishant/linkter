@@ -2,6 +2,7 @@
 import { ILandingContentData } from "@/app/interfaces/Landing";
 import { SquareArrowOutUpRight, Info } from "lucide-react";
 import data from "@/data/landing.json";
+import Link from "next/link";
 
 export const LandingContent = () => {
   const landingContentPart: ILandingContentData = data;
@@ -19,10 +20,12 @@ export const LandingContent = () => {
           <p className="">{landingContentPart.landingContent.subHeading}</p>
         </div>
         <div className="flex ml-85 justify-space space-x-12 mt-14">
+         <Link href="/signup">
           <button className="text-white bg-green-900 border-transparent flex items-center font-sans font-semibold tracking-tight size-12 text-xl hover:cursor-pointer border  rounded-xl w-fit px-4 py-3">
             {landingContentPart.landingContent.button1}
             <SquareArrowOutUpRight className="ml-2" />
           </button>
+          </Link>
           <button className="text-neutral-400 flex items-center tracking-tight font-sans font-semibold rounded-xl w-fit text-xl px-4 py-2 hover:cursor-pointer border border-neutral-400 p-1">
             {landingContentPart.landingContent.button2}
             <Info className="ml-2" />
