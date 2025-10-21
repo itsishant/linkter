@@ -23,7 +23,7 @@ export default function SignUp() {
     }
 
     return (
-        <div className="min-h-screen w-full flex justify-center bg-black">
+        <div className="min-h-screen w-full items-center flex justify-center bg-black">
             <div>
                 <h1 className="font-bold text-4xl text-neutral-200 mt-10">
                     {signupdetail.signup.title}

@@ -22,7 +22,7 @@ export default function VerifyOtp() {
     }
 
     return (
-        <div className="min-h-screen w-full flex justify-center bg-black">
+        <div className="min-h-screen items-center w-full flex justify-center bg-black">
             <div>
                 <h1 className="font-bold text-4xl text-neutral-200 mt-10">Verify OTP</h1>
 
