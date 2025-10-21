@@ -1,11 +1,9 @@
 import express, { Request, Response } from "express";
-import { SignupZod } from "@repo/common-zod";
 import { prisma } from "@repo/database";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { otpGenerator, sendOtpEmail } from "../utils/node.mailer";
-
-const JWT_SECRET = "!@#$%^%@";
+import { JWT_SECRET } from "../utils/jwt";
 
 interface IBody {
   newOtp: Number
@@ -17,7 +15,7 @@ export class AuthController {
       const { email } = req.body;
 
       if (!email) {
-        return res.status(404).json({
+        return res.status(422).json({
           success: false,
           messgae: "Input fields required"
         })

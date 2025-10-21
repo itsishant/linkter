@@ -1,0 +1,9 @@
+{
+    "signin": {
+        "title": "Sign in to PDF Chat",
+        "email": "Email Address",
+        "submit": "Sign in",
+        "alreadyHaveAccount": "Don't have an account?",
+        "password": "Password"
+    }
+}
