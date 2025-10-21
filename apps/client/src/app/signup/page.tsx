@@ -2,11 +2,11 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import data from "../../data/signup.json"
-import { ISignupData } from "../interfaces/Signup"
 import { createUser } from "../api/postApi/postApi"
+import Link from 'next/link'
 
 export default function SignUp() {
-    const signupdetail: ISignupData = data
+    const signup = data;
     const router = useRouter()
 
     const [email, setEmail] = useState("")
@@ -26,7 +26,7 @@ export default function SignUp() {
         <div className="min-h-screen w-full items-center flex justify-center bg-black">
             <div>
                 <h1 className="font-bold text-4xl text-neutral-200 mt-10">
-                    {signupdetail.signup.title}
+                    {signup.signup.title}
                 </h1>
 
                 <form onSubmit={handleSubmit} className="flex flex-col space-y-4 max-w-md mx-auto mt-10">
@@ -45,6 +45,10 @@ export default function SignUp() {
                     >
                         Send OTP
                     </button>
+                    <h1 className="flex justify-center items-center text-neutral-200 font-sans text-md ">
+                        {signup.signup.alreadyHaveAccount}
+                        <Link href={"/signin"} className="hover:text-neutral-400 text-neutral-200 ml-2"> Sign in</Link>
+                    </h1>
                 </form>
             </div>
         </div>
