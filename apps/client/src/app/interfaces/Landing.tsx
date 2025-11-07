@@ -12,10 +12,24 @@ interface ILandingContent {
   video: string;
 }
 
+interface ILandingWorks {
+  title: string;
+  p1: string;
+  p2: string;
+  p3: string;
+  p4: string
+}
+
 export interface IData {
   landing: ILanding;
 }
 
+export interface ILandingFooter {
+  text: string;
+}
+
 export interface ILandingContentData {
   landingContent: ILandingContent;
+  landingWorks: ILandingWorks;
+  landingFooter: ILandingFooter;
 }
