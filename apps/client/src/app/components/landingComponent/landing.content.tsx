@@ -3,10 +3,17 @@ import { ILandingContentData } from "@/app/interfaces/Landing";
 import { SquareArrowOutUpRight, Info } from "lucide-react";
 import data from "@/data/landing.json";
 import Link from "next/link";
+import FlyingPosters from "../scrollPoster/scrollPoster";
 
 export const LandingContent = () => {
   const landingContentPart: ILandingContentData = data;
   const landingWorksPart: ILandingContentData = data;
+
+
+ const items = [
+  "/unnamed (3).png"
+];
+
 
   return (
     <div className="min-h-screen">
@@ -30,11 +37,14 @@ export const LandingContent = () => {
           <button className="text-neutral-400 flex items-center tracking-tight font-sans font-semibold rounded-xl w-fit text-xl px-4 py-2 hover:cursor-pointer border border-neutral-400 p-1">
             {landingContentPart.landingContent.button2}
             <Info className="ml-2" />
-          </button>
+          </button>          
         </div>
+
+
       </div>
       
-        <div className="mt-44 flex justify-center items-center flex-col">
+      
+        <div className="mt-50 flex justify-center items-center flex-col">
           <div className="bg-clip-text text-transparent text-6xl bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white font-sans py-2 md:py-10 relative z-20 font-bold 
                 tracking-tight">
             {landingWorksPart.landingWorks.title}            
