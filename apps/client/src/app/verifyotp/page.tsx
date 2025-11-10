@@ -24,7 +24,7 @@ export default function VerifyOtp() {
     return (
         <div className="min-h-screen items-center w-full flex justify-center bg-black">
             <div>
-                <h1 className="font-bold text-4xl text-neutral-200 mt-10">Verify OTP</h1>
+                <h1 className="font-bold text-4xl flex justify-center items-center text-neutral-200 mt-10">Verify OTP</h1>
 
                 <form onSubmit={handleVerify} className="flex flex-col space-y-4 max-w-md mx-auto mt-10">
                     <input
@@ -40,7 +40,7 @@ export default function VerifyOtp() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Set your password"
-                        className="border-2 w-full py-6 px-2 rounded-lg border-neutral-700 bg-neutral-900 text-neutral-100 h-10"
+                        className="border-2 w-64 py-6 px-2 rounded-lg border-neutral-700 bg-neutral-900 text-neutral-100 h-10"
                         required
                     />
 
