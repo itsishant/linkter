@@ -1,5 +1,6 @@
 "use client";
 import { LandingContent } from "../components/landingComponent/landing.content";
+import { LandingFooter } from "../components/landingComponent/landing.footer";
 import { LandingHeader } from "../components/landingComponent/landing.header";
 
 export const Landing = () => {
@@ -7,6 +8,7 @@ export const Landing = () => {
     <div>
       <LandingHeader />
       <LandingContent />
+      <LandingFooter />
     </div>
   );
 };

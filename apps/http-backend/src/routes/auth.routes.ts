@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { AuthController } from "../controllers/auth.controller";
-import { NodeMailer } from "../utils/node.mailer";
+import { SignIn } from "../controllers/signin.controller";
 
 const router = Router();
 
 router.route("/signup").post(AuthController.SignUp);
-router.route("/send-otp").post(NodeMailer);
+router.route("/verify-otp").post(AuthController.Verifyotp);
+router.route("/signin").post(SignIn);
 
 export default router;

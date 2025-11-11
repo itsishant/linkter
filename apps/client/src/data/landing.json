@@ -11,5 +11,17 @@
       "button1": "Get Started",
       "button2": "Learn More",
       "video": "video.webm"
+    },
+
+    "landingWorks": {
+      "title": "How it works ?",
+      "p1": "• Upload your PDF document using the upload button.",
+      "p2": "• The system processes the document to extract relevant information.",
+      "p3": "• Ask questions about the content of your PDF.",
+      "p4": "• Receive accurate and context-aware answers in real-time."
+    },
+
+    "landingFooter": {
+      "text": "Made by Ishant"
     }
 }
