@@ -26,7 +26,7 @@ export default function VerifyOtp() {
             <div>
 
 
-                <h1 className="font-bold text-4xl flex justify-center items-center text-neutral-200 mt-10">Verify OTP</h1>
+                <h2 className="font-bold text-4xl flex justify-center items-center text-neutral-200 mt-10">Verify OTP</h2>
 
                 <form onSubmit={handleVerify} className="flex flex-col space-y-4 max-w-md mx-auto mt-10">
                     <input
